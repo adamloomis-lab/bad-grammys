@@ -45,6 +45,13 @@ export const galleryItems: GalleryItem[] = [
   { src: '/images/gallery/creation-25.jpg', category: 'Bags', alt: 'Handmade Minnie Mouse crossbody bag with red polka-dot pockets' },
   { src: '/images/gallery/creation-21.jpg', category: 'Apparel', alt: 'Black crewneck sweatshirt with embroidered skeleton hands forming a heart' },
   { src: '/images/gallery/creation-15.jpg', category: 'Apparel', alt: 'Gray hoodie with a gold sugar-skull and floral embroidery on the back, shown at a craft fair' },
+  { src: '/images/gallery/creation-31.jpg', category: 'Hats', alt: 'Black snapback cap embroidered with a red Norton "N" and panther logo, photographed on a stadium field' },
+  { src: '/images/gallery/creation-33.jpg', category: 'Hats', alt: 'Black snapback cap embroidered with the purple Barberton Magics top-hat magician mascot' },
+  { src: '/images/gallery/creation-27.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears sewn from camo and denim clothing, each embroidered with Dad on the feet' },
+  { src: '/images/gallery/creation-29.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears sewn from button-up dress shirts in blue, navy, and plaid' },
+  { src: '/images/gallery/creation-30.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears with stitched eyelashes, made from gingham, plaid, and navy shirts' },
+  { src: '/images/gallery/creation-28.jpg', category: 'Memory Keepsakes', alt: 'Memory keepsake bear sewn from cookies-and-milk print flannel with a name embroidered on the foot' },
+  { src: '/images/gallery/creation-32.jpg', category: 'Memory Keepsakes', alt: 'Memory keepsake bear sewn from blue striped pajamas, displayed beside a loved one\'s memorial photo' },
 ]
 
 export const galleryCategories: GalleryCategory[] = [

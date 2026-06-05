@@ -70,12 +70,12 @@ export const offerings = [
   },
   {
     slug: 'apparel-hats',
-    title: 'Hoodies, Tees & Hats',
+    title: 'Hats, Hoodies & Tees',
     blurb:
-      'Wear your personality. From birthdays to inside jokes to game-day team pride, we make custom embroidered apparel that means something.',
+      'Wear your personality. We embroider snapbacks, beanies, hoodies, and tees, from local team and spirit wear to birthdays and inside jokes. Custom apparel that actually means something.',
     icon: 'shirt',
-    image: '/images/gallery/creation-24.jpg',
-    alt: 'Red and gray knit beanies embroidered with the Panthers team name',
+    image: '/images/gallery/creation-31.jpg',
+    alt: 'Black snapback cap embroidered with a red Norton "N" and panther logo on a stadium field',
   },
   {
     slug: 'baby-lovies',
