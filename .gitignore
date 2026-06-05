@@ -1,0 +1,7 @@
+*.tsbuildinfo
+.DS_Store
+.netlify
+_scrape
+dist
+dist-server
+node_modules

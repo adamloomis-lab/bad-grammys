@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+
+/* ---- Brand theme: warm, handmade, cozy "made like Grandma used to" ---- */
+@theme {
+  --color-cream: #fbf5ec;
+  --color-cream-deep: #f4e9d8;
+  --color-paper: #fffdf8;
+
+  --color-rust-50: #fbeee6;
+  --color-rust-100: #f4d8c6;
+  --color-rust-300: #e0a583;
+  --color-rust-500: #c2693e;
+  --color-rust-600: #b05633;
+  --color-rust-700: #8f4527;
+
+  --color-pine-500: #4a6b52;
+  --color-pine-600: #3f5c45;
+  --color-pine-700: #324a38;
+
+  --color-rose-400: #c97b86;
+  --color-rose-500: #b8636f;
+
+  --color-gold-400: #d9a441;
+  --color-gold-500: #c9912f;
+
+  --color-bark-700: #5a4636;
+  --color-bark-800: #43342a;
+  --color-bark-900: #33271f;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-script: 'Caveat', 'Segoe Script', cursive;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
+
+  --shadow-soft: 0 10px 40px -12px rgba(67, 52, 42, 0.25);
+  --shadow-lift: 0 18px 50px -16px rgba(67, 52, 42, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-bark-800);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-rust-300);
+  color: var(--color-bark-900);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-bark-900);
+  letter-spacing: -0.01em;
+}
+
+/* Dashed "stitch" border helper */
+.stitch {
+  border: 2px dashed var(--color-rust-300);
+  border-radius: 1rem;
+}
+.stitch-pine {
+  border: 2px dashed var(--color-pine-500);
+}
+
+/* Subtle linen texture via layered gradients */
+.linen {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(194, 105, 62, 0.05) 0, transparent 38%),
+    radial-gradient(circle at 82% 78%, rgba(74, 107, 82, 0.05) 0, transparent 40%);
+}
+
+/* ---- Scroll reveal (gated on .reveal-ready so no-JS shows everything) ---- */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Legal page typography */
+.legal h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-bark-900);
+  margin-top: 1.5rem;
+}
+.legal p { line-height: 1.7; }
+.legal a { color: var(--color-rust-600); font-weight: 600; text-decoration: underline; }
+.legal ul { list-style: disc; padding-left: 1.4rem; }
+.legal ul li { margin-top: 0.35rem; line-height: 1.6; }
+
+/* Focus visibility for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-rust-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

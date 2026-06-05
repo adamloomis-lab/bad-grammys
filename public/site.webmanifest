@@ -1,0 +1,14 @@
+{
+  "name": "Bad Grammy's Creations",
+  "short_name": "Bad Grammy's",
+  "description": "Custom embroidery and personalized gifts handmade in Northeast Ohio.",
+  "icons": [
+    { "src": "/favicon-16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#b85c38",
+  "background_color": "#fbf5ec",
+  "display": "standalone",
+  "start_url": "/"
+}
