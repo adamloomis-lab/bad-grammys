@@ -35,26 +35,32 @@
   --shadow-lift: 0 18px 50px -16px rgba(67, 52, 42, 0.35);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* Base element defaults live in @layer base so Tailwind text-color utilities
+   (in @layer utilities, a higher layer) always win. Without the layer, the
+   unlayered `h2 { color }` rule below would override `text-cream` etc. and make
+   light headings on dark sections render dark. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  font-family: var(--font-body);
-  color: var(--color-bark-800);
-  background-color: var(--color-cream);
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    font-family: var(--font-body);
+    color: var(--color-bark-800);
+    background-color: var(--color-cream);
+    -webkit-font-smoothing: antialiased;
+  }
 
-::selection {
-  background: var(--color-rust-300);
-  color: var(--color-bark-900);
-}
+  ::selection {
+    background: var(--color-rust-300);
+    color: var(--color-bark-900);
+  }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  color: var(--color-bark-900);
-  letter-spacing: -0.01em;
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-bark-900);
+    letter-spacing: -0.01em;
+  }
 }
 
 /* Dashed "stitch" border helper */
