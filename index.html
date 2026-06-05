@@ -28,6 +28,15 @@
     </script>
   </head>
   <body>
+    <!-- Hidden static form so Netlify Forms reliably detects "contact" at deploy.
+         The live form (src/components/ContactForm.tsx) posts to this name. -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="interest" />
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

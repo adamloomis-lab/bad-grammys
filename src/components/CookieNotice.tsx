@@ -32,7 +32,8 @@ export default function CookieNotice() {
     <div className="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-2xl rounded-2xl border border-rust-100 bg-paper p-4 shadow-lift sm:bottom-4 sm:p-5 lg:inset-x-auto lg:right-4">
       <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-relaxed text-bark-800">
-          We use a few cookies to keep this site running smoothly. See our{' '}
+          Grammy keeps a few cookies on this site. Sadly the digital kind, not the warm-from-the-oven
+          kind. They just help things run smoothly. See our{' '}
           <Link href="/privacy" className="font-semibold text-rust-600 underline">
             Privacy Policy
           </Link>

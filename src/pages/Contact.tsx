@@ -1,5 +1,6 @@
 import { Phone, Facebook, MapPin, Clock, MessageCircle } from 'lucide-react'
 import { company, faqs } from '../data/site'
+import ContactForm from '../components/ContactForm'
 
 export default function Contact() {
   return (
@@ -11,8 +12,8 @@ export default function Contact() {
             Bad Grammy's got you
           </h1>
           <p className="mt-4 text-lg text-bark-700">
-            Have a question, a custom idea, or want help picking the perfect gift? Give us a call or
-            send a message on Facebook. We'd love to hear from you.
+            Have a question, a custom idea, or want help picking the perfect gift? Fill out the form
+            below, give us a call, or send a message on Facebook. We'd love to hear from you.
           </p>
         </div>
       </section>
@@ -72,6 +73,19 @@ export default function Contact() {
                 since handmade takes a little time.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact form */}
+      <section className="px-4 pt-12 sm:px-6">
+        <div className="mx-auto max-w-3xl">
+          <div className="reveal mb-7 text-center">
+            <p className="font-script text-3xl text-rust-500">Or drop us a note</p>
+            <h2 className="mt-1 text-3xl font-semibold text-bark-900">Tell us what you're dreaming up</h2>
+          </div>
+          <div className="reveal">
+            <ContactForm />
           </div>
         </div>
       </section>
