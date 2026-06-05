@@ -26,14 +26,14 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Logo />
 
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-9 lg:flex">
           {links.map((l) => {
             const active = location === l.href
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`relative text-sm font-semibold tracking-wide transition-colors ${
+                className={`relative text-lg font-semibold tracking-wide transition-colors ${
                   active ? 'text-rust-600' : 'text-bark-800 hover:text-rust-600'
                 }`}
               >
@@ -48,9 +48,9 @@ export default function Navbar() {
           })}
           <a
             href={company.phoneHref}
-            className="inline-flex items-center gap-2 rounded-full bg-rust-500 px-5 py-2.5 text-sm font-bold text-cream shadow-soft transition hover:bg-rust-600"
+            className="inline-flex items-center gap-2 rounded-full bg-rust-500 px-6 py-3 text-base font-bold text-cream shadow-soft transition hover:bg-rust-600"
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-5 w-5" />
             {company.phone}
           </a>
         </div>
@@ -62,7 +62,7 @@ export default function Navbar() {
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </nav>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-xl px-3 py-3 text-base font-semibold transition ${
+                className={`rounded-xl px-3 py-3.5 text-xl font-semibold transition ${
                   location === l.href
                     ? 'bg-rust-50 text-rust-600'
                     : 'text-bark-800 hover:bg-rust-50'
@@ -85,7 +85,7 @@ export default function Navbar() {
             ))}
             <a
               href={company.phoneHref}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-rust-500 px-5 py-3 text-base font-bold text-cream shadow-soft"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-rust-500 px-5 py-3.5 text-lg font-bold text-cream shadow-soft"
             >
               <Phone className="h-5 w-5" />
               Call {company.phone}
