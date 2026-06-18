@@ -21,23 +21,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Caveat:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap"
       rel="stylesheet" />
-    <!--SEO_HEAD-->
-    <!-- Gate scroll-reveal styles on JS so no-JS / failed-bundle visitors see all content. -->
-    <script>
-      document.documentElement.classList.add('reveal-ready')
-    </script>
-  </head>
-  <body>
-    <!-- Hidden static form so Netlify Forms reliably detects "contact" at deploy.
-         The live form (src/components/ContactForm.tsx) posts to this name. -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="interest" />
-      <textarea name="message"></textarea>
-    </form>
-    <div id="root"></div>
+<div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
