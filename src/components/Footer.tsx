@@ -73,7 +73,7 @@ export default function Footer() {
             © {year} {company.name}. Made with <Heart className="h-3.5 w-3.5 fill-rust-400 text-rust-400" /> in {company.region}.
           </p>
           <a
-            href="https://adamloomis.online"
+            href="https://adamloomismarketing.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 opacity-80 transition hover:opacity-100"
