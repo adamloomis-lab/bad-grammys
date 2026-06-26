@@ -28,7 +28,7 @@ function Shell() {
     <>
       <Seo path={location} />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/what-we-offer" component={WhatWeOffer} />

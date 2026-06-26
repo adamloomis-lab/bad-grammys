@@ -86,7 +86,7 @@ export default function ContactForm() {
         </label>
         <label className="block">
           <span className="text-sm font-semibold text-bark-800">
-            Phone <span className="font-normal text-bark-700/70">(optional)</span>
+            Phone <span className="font-normal text-bark-700">(optional)</span>
           </span>
           <input
             type="tel"

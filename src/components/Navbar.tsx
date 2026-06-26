@@ -23,6 +23,7 @@ export default function Navbar() {
         scrolled ? 'bg-cream/95 shadow-soft backdrop-blur' : 'bg-cream/80 backdrop-blur-sm'
       }`}
     >
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg focus:text-gray-900">Skip to content</a>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Logo />
 
