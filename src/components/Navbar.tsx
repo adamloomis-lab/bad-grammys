@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'wouter'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, Phone } from 'lucide-react'
 import Logo from './Logo'
+import MobileMenu from './MobileMenu'
 import { company } from '../data/site'
 import { useScrolled } from '../hooks/useScrolled'
 
@@ -58,42 +59,16 @@ export default function Navbar() {
 
         <button
           type="button"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen(true)}
           className="inline-flex items-center justify-center rounded-full p-2 text-bark-800 transition hover:bg-rust-50 lg:hidden"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label="Open menu"
           aria-expanded={open}
         >
-          {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+          <Menu className="h-7 w-7" />
         </button>
       </nav>
 
-      {open && (
-        <div className="border-t border-rust-100 bg-cream lg:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className={`rounded-xl px-3 py-3.5 text-xl font-semibold transition ${
-                  location === l.href
-                    ? 'bg-rust-50 text-rust-600'
-                    : 'text-bark-800 hover:bg-rust-50'
-                }`}
-              >
-                {l.label}
-              </Link>
-            ))}
-            <a
-              href={company.phoneHref}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-rust-500 px-5 py-3.5 text-lg font-bold text-cream shadow-soft"
-            >
-              <Phone className="h-5 w-5" />
-              Call {company.phone}
-            </a>
-          </div>
-        </div>
-      )}
+      <MobileMenu open={open} onClose={() => setOpen(false)} links={links} />
     </header>
   )
 }
