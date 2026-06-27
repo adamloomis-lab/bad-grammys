@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'wouter'
 import { X, Phone, MapPin, Heart, ArrowRight, Facebook } from 'lucide-react'
 import Logo from './Logo'
@@ -32,8 +33,15 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
   }, [open])
 
   if (!open) return null
+  // SSR guard — document only exists in the browser.
+  if (typeof document === 'undefined') return null
 
-  return (
+  // IMPORTANT: render at document.body via portal so the panel's `position:
+  // fixed` escapes the header's containing block. The header uses
+  // `backdrop-blur` once scrolled, which makes it a containing block for
+  // fixed descendants — that's why the menu was clipping to the header
+  // strip after scrolling before this portal was added.
+  return createPortal(
     <div className="lg:hidden fixed inset-0 z-[60]">
       {/* Backdrop */}
       <button
@@ -144,6 +152,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
