@@ -1,4 +1,4 @@
-import { Phone, Sparkles } from 'lucide-react'
+import { Phone, Shirt } from 'lucide-react'
 import { company, offerings, faqs } from '../data/site'
 import CtaBand from '../components/CtaBand'
 
@@ -9,7 +9,7 @@ export default function WhatWeOffer() {
       <section className="linen px-4 py-14 sm:px-6 sm:py-20">
         <div className="reveal mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-rust-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rust-600">
-            <Sparkles className="h-3.5 w-3.5" /> What we offer
+            <Shirt className="h-3.5 w-3.5" /> What we offer
           </span>
           <h1 className="mt-5 text-4xl font-semibold text-bark-900 sm:text-5xl">
             Thoughtful, personalized creations

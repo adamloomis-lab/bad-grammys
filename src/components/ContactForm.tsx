@@ -12,7 +12,8 @@ import {
   Shirt,
   Rabbit,
   Home,
-  Sparkles,
+  MessageCircle,
+  MoreHorizontal,
   type LucideIcon,
 } from 'lucide-react'
 import { offerings, company } from '../data/site'
@@ -38,8 +39,8 @@ const ICONS: Record<string, LucideIcon> = {
 }
 
 const INTEREST_OPTIONS: { value: string; label: string; icon: LucideIcon }[] = [
-  ...offerings.map((o) => ({ value: o.title, label: o.title, icon: ICONS[o.icon] ?? Sparkles })),
-  { value: 'Something else', label: 'Something else / not sure yet', icon: Sparkles },
+  ...offerings.map((o) => ({ value: o.title, label: o.title, icon: ICONS[o.icon] ?? MoreHorizontal })),
+  { value: 'Something else', label: 'Something else / not sure yet', icon: MessageCircle },
 ]
 
 // Netlify Forms: the form markup below is baked into the prerendered HTML at

@@ -1,5 +1,5 @@
 import { Link } from 'wouter'
-import { Phone, Facebook, Heart, Sparkles, Scissors, ArrowRight } from 'lucide-react'
+import { Phone, Facebook, Heart, Shirt, Scissors, ArrowRight } from 'lucide-react'
 import { company, offerings, steps, promises } from '../data/site'
 import { galleryItems } from '../data/gallery'
 import CtaBand from '../components/CtaBand'
@@ -14,7 +14,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:py-20">
           <div className="reveal">
             <span className="inline-flex items-center gap-2 rounded-full bg-rust-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rust-600">
-              <Sparkles className="h-3.5 w-3.5" /> Handmade in {company.region}
+              <Scissors className="h-3.5 w-3.5" /> Handmade in {company.region}
             </span>
             <h1 className="mt-5 text-4xl font-semibold leading-[1.05] text-bark-900 sm:text-5xl lg:text-6xl">
               One-of-a-Kind Gifts
@@ -70,7 +70,7 @@ export default function Home() {
           {[
             { icon: Heart, title: 'Made to order', body: 'One person, one family, one story at a time.' },
             { icon: Scissors, title: 'Hand-stitched', body: 'Real embroidery, real care, never mass-produced.' },
-            { icon: Sparkles, title: 'Fully custom', body: 'Have an idea? We love bringing new ones to life.' },
+            { icon: Shirt, title: 'Fully custom', body: 'Have an idea? We love bringing new ones to life.' },
           ].map((f) => (
             <div key={f.title} className="reveal flex items-start gap-3">
               <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-rust-50 text-rust-600">

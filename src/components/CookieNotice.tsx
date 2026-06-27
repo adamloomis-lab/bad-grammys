@@ -40,7 +40,7 @@ export default function CookieNotice() {
     >
       <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-relaxed text-bark-800">
-          Grammy keeps a few cookies on this site — the digital kind, not the warm-from-the-oven
+          Grammy keeps a few cookies on this site. The digital kind, not the warm-from-the-oven
           kind. They keep things running smoothly. We never sell your data. See our{' '}
           <Link href="/privacy" className="font-semibold text-rust-600 underline">
             Privacy Policy

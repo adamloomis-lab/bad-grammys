@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'wouter'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight, ShoppingBag } from 'lucide-react'
 import { useScrolled } from '../hooks/useScrolled'
 
 // Desktop-only floating "Start Your Order" pill (D&D pattern, rust-brand),
@@ -25,7 +25,7 @@ export default function StickyOrder() {
         className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-white/30 blur-md group-hover:[animation:sheen_1s_ease]"
         aria-hidden="true"
       />
-      <Sparkles className="h-4 w-4" /> Start Your Order
+      <ShoppingBag className="h-4 w-4" /> Start Your Order
       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
     </Link>
   )
