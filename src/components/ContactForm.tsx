@@ -1,34 +1,85 @@
 import { useState } from 'react'
-import { Send, CheckCircle2 } from 'lucide-react'
-import { offerings } from '../data/site'
+import {
+  Send,
+  Loader2,
+  ArrowRight,
+  Phone,
+  Heart,
+  Scissors,
+  Gift,
+  ShoppingBag,
+  BedDouble,
+  Shirt,
+  Rabbit,
+  Home,
+  Sparkles,
+  type LucideIcon,
+} from 'lucide-react'
+import { offerings, company } from '../data/site'
+import { FloatField, SuccessCheck } from './FluidField'
 
 const encode = (data: Record<string, string>) =>
   Object.keys(data)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
     .join('&')
 
+// Icon-card selector for "What we can make you". The submitted `value` stays
+// identical to the old <select> options (offering titles + "Something else"),
+// so Netlify receives the exact same `interest` data.
+const ICONS: Record<string, LucideIcon> = {
+  heart: Heart,
+  needle: Scissors,
+  gift: Gift,
+  bag: ShoppingBag,
+  pillow: BedDouble,
+  shirt: Shirt,
+  rabbit: Rabbit,
+  home: Home,
+}
+
+const INTEREST_OPTIONS: { value: string; label: string; icon: LucideIcon }[] = [
+  ...offerings.map((o) => ({ value: o.title, label: o.title, icon: ICONS[o.icon] ?? Sparkles })),
+  { value: 'Something else', label: 'Something else / not sure yet', icon: Sparkles },
+]
+
 // Netlify Forms: the form markup below is baked into the prerendered HTML at
 // build time, so Netlify detects it. On submit we POST url-encoded data back to
-// the page (the standard SPA pattern) and show an inline thank-you.
+// the page (the standard SPA pattern) and show a personalized inline thank-you.
 export default function ContactForm() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    interest: '',
+    message: '',
+  })
   const [status, setStatus] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle')
+  const [thankedName, setThankedName] = useState('')
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setStatus('submitting')
-    const form = e.currentTarget
-    const data = new FormData(form)
-    const payload: Record<string, string> = { 'form-name': 'contact' }
-    data.forEach((v, k) => {
-      payload[k] = typeof v === 'string' ? v : ''
-    })
+    // Capture the first name BEFORE any reset, for the personalized thank-you.
+    const firstName = form.name.trim().split(/\s+/)[0] ?? ''
+    const payload: Record<string, string> = { 'form-name': 'contact', ...form }
     try {
       const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode(payload),
       })
-      setStatus(res.ok ? 'done' : 'error')
+      if (res.ok) {
+        setThankedName(firstName)
+        setStatus('done')
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
@@ -36,12 +87,33 @@ export default function ContactForm() {
 
   if (status === 'done') {
     return (
-      <div className="rounded-[1.6rem] border border-pine-500/30 bg-paper p-8 text-center shadow-soft">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-pine-600" />
-        <h3 className="mt-4 text-2xl font-semibold text-bark-900">Message sent!</h3>
-        <p className="mt-2 text-bark-700">
-          Thank you. Bad Grammy's will get back to you soon. For anything urgent, give us a call.
+      <div
+        className="rounded-[1.6rem] border border-rust-100 bg-paper p-8 text-center shadow-soft sm:p-10"
+        style={{ animation: 'rise 0.8s cubic-bezier(0.16,1,0.3,1) both' }}
+      >
+        <span
+          className="mx-auto mb-5 flex h-20 w-20 items-center justify-center"
+          style={{ animation: 'pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both' }}
+        >
+          <SuccessCheck />
+        </span>
+        <h3 className="font-display text-3xl font-semibold text-bark-900 sm:text-4xl">
+          {thankedName ? `Thank You, ${thankedName}!` : 'Thank You!'}
+        </h3>
+        <p className="mx-auto mt-3 max-w-md text-bark-700">
+          Your idea is on its way to Bad Grammy's. We'll get back to you soon. Want to
+          chat about it sooner? Give us a call and we'll help you today.
         </p>
+        <a
+          href={company.phoneHref}
+          className="group relative mt-7 inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-rust-500 px-8 py-3.5 text-base font-bold text-cream shadow-soft transition hover:bg-rust-600"
+        >
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-white/25 blur-md group-hover:[animation:sheen_0.9s_ease]"
+          />
+          <Phone className="h-5 w-5" /> {company.phone}
+        </a>
       </div>
     )
   }
@@ -64,67 +136,79 @@ export default function ContactForm() {
       </p>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block">
-          <span className="text-sm font-semibold text-bark-800">Your name</span>
-          <input
-            type="text"
-            name="name"
-            required
-            autoComplete="name"
-            className="mt-1.5 w-full rounded-xl border border-rust-200 bg-cream/50 px-4 py-3 text-bark-900 outline-none transition focus:border-rust-400 focus:bg-paper focus:ring-2 focus:ring-rust-300"
-          />
-        </label>
-        <label className="block">
-          <span className="text-sm font-semibold text-bark-800">Email</span>
-          <input
-            type="email"
-            name="email"
-            required
-            autoComplete="email"
-            className="mt-1.5 w-full rounded-xl border border-rust-200 bg-cream/50 px-4 py-3 text-bark-900 outline-none transition focus:border-rust-400 focus:bg-paper focus:ring-2 focus:ring-rust-300"
-          />
-        </label>
-        <label className="block">
-          <span className="text-sm font-semibold text-bark-800">
-            Phone <span className="font-normal text-bark-700">(optional)</span>
-          </span>
-          <input
-            type="tel"
+        <FloatField
+          name="name"
+          label="Your name"
+          value={form.name}
+          onChange={handleChange}
+          autoComplete="name"
+          required
+        />
+        <FloatField
+          name="email"
+          label="Email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          autoComplete="email"
+          required
+        />
+        <div className="sm:col-span-2">
+          <FloatField
             name="phone"
+            label="Phone (optional)"
+            type="tel"
+            value={form.phone}
+            onChange={handleChange}
             autoComplete="tel"
-            className="mt-1.5 w-full rounded-xl border border-rust-200 bg-cream/50 px-4 py-3 text-bark-900 outline-none transition focus:border-rust-400 focus:bg-paper focus:ring-2 focus:ring-rust-300"
           />
-        </label>
-        <label className="block">
-          <span className="text-sm font-semibold text-bark-800">What can we make you?</span>
-          <select
-            name="interest"
-            defaultValue=""
-            className="mt-1.5 w-full rounded-xl border border-rust-200 bg-cream/50 px-4 py-3 text-bark-900 outline-none transition focus:border-rust-400 focus:bg-paper focus:ring-2 focus:ring-rust-300"
-          >
-            <option value="" disabled>
-              Choose one...
-            </option>
-            {offerings.map((o) => (
-              <option key={o.slug} value={o.title}>
-                {o.title}
-              </option>
-            ))}
-            <option value="Something else">Something else / not sure yet</option>
-          </select>
-        </label>
+        </div>
       </div>
 
-      <label className="mt-5 block">
-        <span className="text-sm font-semibold text-bark-800">Tell us about your idea</span>
-        <textarea
+      {/* "What can we make you?" as single-select icon cards. The chosen value
+          submits via the hidden `interest` input below, matching the old data. */}
+      <input type="hidden" name="interest" value={form.interest} />
+      <fieldset className="mt-6">
+        <legend className="mb-3 block font-body text-xs font-semibold uppercase tracking-[0.12em] text-bark-700">
+          What can we make you?
+        </legend>
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+          {INTEREST_OPTIONS.map((o) => {
+            const active = form.interest === o.value
+            const Icon = o.icon
+            return (
+              <button
+                key={o.value}
+                type="button"
+                aria-pressed={active}
+                onClick={() =>
+                  setForm((prev) => ({ ...prev, interest: active ? '' : o.value }))
+                }
+                className={`flex flex-col items-start gap-2 rounded-xl border px-3.5 py-3.5 text-left font-body text-sm transition-all duration-200 active:scale-[0.98] ${
+                  active
+                    ? 'border-rust-500 bg-rust-500 text-cream shadow-[0_10px_24px_-12px_rgba(194,105,62,0.7)]'
+                    : 'border-rust-200 bg-cream/50 text-bark-900 hover:border-rust-400 hover:bg-paper'
+                }`}
+              >
+                <Icon size={22} className={active ? 'text-cream' : 'text-rust-500'} strokeWidth={1.75} />
+                <span className="font-semibold leading-tight">{o.label}</span>
+              </button>
+            )
+          })}
+        </div>
+      </fieldset>
+
+      <div className="mt-6">
+        <FloatField
           name="message"
+          label="Tell us about your idea"
+          value={form.message}
+          onChange={handleChange}
+          textarea
           rows={5}
           required
-          placeholder="Names or dates to embroider, the occasion, colors, or a piece of clothing with a story..."
-          className="mt-1.5 w-full resize-y rounded-xl border border-rust-200 bg-cream/50 px-4 py-3 text-bark-900 outline-none transition placeholder:text-bark-700/50 focus:border-rust-400 focus:bg-paper focus:ring-2 focus:ring-rust-300"
         />
-      </label>
+      </div>
 
       {status === 'error' && (
         <p className="mt-4 rounded-xl bg-rose-500/10 px-4 py-3 text-sm font-medium text-rose-500">
@@ -135,10 +219,22 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-rust-500 px-7 py-3.5 text-base font-bold text-cream shadow-soft transition hover:bg-rust-600 disabled:opacity-60 sm:w-auto"
+        className="group relative mt-6 inline-flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-rust-500 px-7 py-4 text-base font-bold text-cream shadow-soft transition hover:bg-rust-600 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        <Send className="h-5 w-5" />
-        {status === 'submitting' ? 'Sending...' : 'Send my idea'}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-white/25 blur-md group-hover:[animation:sheen_0.9s_ease]"
+        />
+        {status === 'submitting' ? (
+          <>
+            <Loader2 className="h-5 w-5 animate-spin" /> Sending...
+          </>
+        ) : (
+          <>
+            <Send className="h-5 w-5" /> Send my idea
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </>
+        )}
       </button>
     </form>
   )
