@@ -4,6 +4,7 @@ import Seo from './components/Seo'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MobileCallBar from './components/MobileCallBar'
+import StickyOrder from './components/StickyOrder'
 import CookieNotice from './components/CookieNotice'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import Home from './pages/Home'
@@ -42,6 +43,7 @@ function Shell() {
       </main>
       <Footer />
       <MobileCallBar />
+      <StickyOrder />
       <CookieNotice />
     </>
   )

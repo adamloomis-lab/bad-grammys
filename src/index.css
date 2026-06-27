@@ -115,9 +115,21 @@
   from { transform: translateX(-120%); }
   to { transform: translateX(420%); }
 }
+
+/* Soft pulsing glow for the primary floating CTA (D&D pattern, rust-brand). */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 10px 30px -8px rgba(194, 105, 62, 0.45); }
+  50% { box-shadow: 0 14px 42px -6px rgba(194, 105, 62, 0.75); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 2.6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [style*="rise"], [style*="pop"] { animation: none !important; }
   .group-hover\:\[animation\:sheen_0\.9s_ease\]:hover { animation: none !important; }
+  .group-hover\:\[animation\:sheen_1s_ease\]:hover { animation: none !important; }
+  .animate-glow-pulse { animation: none !important; }
 }
 
 /* Legal page typography */
