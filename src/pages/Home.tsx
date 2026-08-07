@@ -1,5 +1,5 @@
 import { Link } from 'wouter'
-import { Phone, Facebook, Heart, Shirt, Scissors, Sparkles, ArrowRight } from 'lucide-react'
+import { Phone, Facebook, Heart, Shirt, Scissors, ArrowRight } from 'lucide-react'
 import { company, offerings, steps, promises } from '../data/site'
 import { galleryItems } from '../data/gallery'
 import { socks } from '../data/socks'
@@ -14,10 +14,7 @@ export default function Home() {
       <section className="linen relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:py-20">
           <div className="reveal">
-            <span className="inline-flex items-center gap-2 rounded-full bg-rust-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rust-600">
-              <Scissors className="h-3.5 w-3.5" /> Handmade in {company.region}
-            </span>
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.05] text-bark-900 sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-semibold leading-[1.05] text-bark-900 sm:text-5xl lg:text-6xl">
               One-of-a-Kind Gifts
               <span className="mt-2 block font-script text-5xl text-rust-500 sm:text-6xl lg:text-7xl">
                 Made with Love
@@ -138,10 +135,7 @@ export default function Home() {
       <section className="bg-cream-deep/50 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="reveal mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-rust-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rust-600">
-              <Sparkles className="h-3.5 w-3.5" /> New for the school year
-            </span>
-            <h2 className="mt-4 text-3xl font-semibold text-bark-900 sm:text-4xl">Spirit Wear</h2>
+            <h2 className="text-3xl font-semibold text-bark-900 sm:text-4xl">Spirit Wear</h2>
             <p className="mt-4 text-bark-700">
               Custom socks, sweatshirts, and apparel for any school, in most colors and ready before
               the first bell. Add a name and class year on the sleeve.
@@ -187,10 +181,7 @@ export default function Home() {
             <img src="/images/gallery/creation-03.jpg" alt="Memory keepsake bear sewn from a loved one's hunting shirt with an embroidered monogram" width={400} height={500} loading="lazy" className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lift" />
           </div>
           <div className="reveal order-1 lg:order-2">
-            <span className="inline-flex items-center gap-2 rounded-full bg-cream/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rust-200">
-              <Heart className="h-3.5 w-3.5" /> Our signature creation
-            </span>
-            <h2 className="mt-5 text-3xl font-semibold text-cream sm:text-4xl">Memory Keepsake Bears</h2>
+            <h2 className="text-3xl font-semibold text-cream sm:text-4xl">Memory Keepsake Bears</h2>
             <p className="mt-4 max-w-md leading-relaxed text-cream/85">
               When you've lost someone, their clothes still carry them. The flannel they always wore,
               a favorite jersey, a soft old shirt. Send them to us and we'll hand-sew them into a

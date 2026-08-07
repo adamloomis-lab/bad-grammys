@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Phone, Facebook, Sparkles, X } from 'lucide-react'
+import { Phone, Facebook, X } from 'lucide-react'
 import { company, spiritWear } from '../data/site'
 import { socks } from '../data/socks'
 import CtaBand from '../components/CtaBand'
@@ -12,10 +12,7 @@ export default function SpiritWear() {
       {/* Hero */}
       <section className="linen px-4 py-14 sm:px-6 sm:py-20">
         <div className="reveal mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-rust-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rust-600">
-            <Sparkles className="h-3.5 w-3.5" /> Show your school pride
-          </span>
-          <h1 className="mt-5 text-4xl font-semibold text-bark-900 sm:text-5xl">Spirit Wear</h1>
+          <h1 className="text-4xl font-semibold text-bark-900 sm:text-5xl">Spirit Wear</h1>
           <p className="mt-4 text-lg text-bark-700">
             Custom embroidered gear for any school, in most colors, and ready before the first bell.
             Socks, sweatshirts, and apparel stitched with the logo your team loves.
