@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X, Images } from 'lucide-react'
+import { X, Images, Play } from 'lucide-react'
 import { galleryItems, galleryCategories, type GalleryCategory } from '../data/gallery'
 import CtaBand from '../components/CtaBand'
 
@@ -55,7 +55,8 @@ export default function Gallery() {
                   key={g.src}
                   type="button"
                   onClick={() => setActive(realIndex)}
-                  className="group mb-3 block w-full overflow-hidden rounded-xl shadow-soft sm:mb-4"
+                  className="group relative mb-3 block w-full overflow-hidden rounded-xl shadow-soft sm:mb-4"
+                  aria-label={g.video ? `Play video: ${g.alt}` : g.alt}
                 >
                   <img
                     src={g.src}
@@ -63,6 +64,13 @@ export default function Gallery() {
                     loading="lazy"
                     className="w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                   />
+                  {g.video && (
+                    <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-bark-900/15 transition group-hover:bg-bark-900/25">
+                      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-cream/90 text-rust-600 shadow-lift transition group-hover:scale-110">
+                        <Play className="ml-0.5 h-6 w-6 fill-rust-600" />
+                      </span>
+                    </span>
+                  )}
                 </button>
               )
             })}
@@ -88,11 +96,24 @@ export default function Gallery() {
             <X className="h-6 w-6" />
           </button>
           <figure className="max-h-[88vh] max-w-3xl" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={galleryItems[active].src}
-              alt={galleryItems[active].alt}
-              className="max-h-[80vh] w-auto rounded-xl object-contain shadow-lift"
-            />
+            {galleryItems[active].video ? (
+              <video
+                src={galleryItems[active].video}
+                poster={galleryItems[active].src}
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="max-h-[80vh] w-auto rounded-xl object-contain shadow-lift"
+              />
+            ) : (
+              <img
+                src={galleryItems[active].src}
+                alt={galleryItems[active].alt}
+                className="max-h-[80vh] w-auto rounded-xl object-contain shadow-lift"
+              />
+            )}
             <figcaption className="mt-3 text-center text-sm text-cream/80">
               {galleryItems[active].alt}
             </figcaption>

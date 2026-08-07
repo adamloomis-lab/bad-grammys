@@ -16,11 +16,14 @@ export type GalleryItem = {
   src: string
   alt: string
   category: GalleryCategory
+  // When present, this item is a video: `src` is the poster image shown in the
+  // grid, and `video` plays in the lightbox.
+  video?: string
 }
 
 export const galleryItems: GalleryItem[] = [
   { src: '/images/gallery/creation-19.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears sewn from cardinal-print fabric, embroidered with Grandma and Mom on the feet' },
-  { src: '/images/gallery/creation-34.jpg', category: 'Apparel', alt: 'Model wearing a custom red hoodie embroidered with "Panthers" in script across the chest and lettering down the sleeve' },
+  { src: '/images/gallery/creation-34.jpg', category: 'Apparel', video: '/videos/panthers-hoodie.mp4', alt: 'Model wearing a custom red hoodie embroidered with "Panthers" in script across the chest and lettering down the sleeve' },
   { src: '/images/gallery/creation-01.jpg', category: 'Stockings', alt: 'Personalized green velvet Christmas stockings embroidered with the names Christopher and Paul and a nativity design' },
   { src: '/images/gallery/creation-03.jpg', category: 'Memory Keepsakes', alt: 'Memory keepsake bear sewn from a hunting shirt with the monogram A.R.W. embroidered on its feet' },
   { src: '/images/gallery/creation-10.jpg', category: 'Baby', alt: 'Plush cream baby bunny with the name Dexter embroidered in gold on its ear' },
