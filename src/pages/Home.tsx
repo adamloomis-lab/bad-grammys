@@ -1,7 +1,8 @@
 import { Link } from 'wouter'
-import { Phone, Facebook, Heart, Shirt, Scissors, ArrowRight } from 'lucide-react'
+import { Phone, Facebook, Heart, Shirt, Scissors, Sparkles, ArrowRight } from 'lucide-react'
 import { company, offerings, steps, promises } from '../data/site'
 import { galleryItems } from '../data/gallery'
+import { socks } from '../data/socks'
 import CtaBand from '../components/CtaBand'
 
 const peek = galleryItems.slice(0, 6)
@@ -96,11 +97,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {offerings.map((o) => (
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
+            {offerings
+              .filter((o) => !['baby-lovies', 'personalized-bags', 'kitchen-home'].includes(o.slug))
+              .map((o) => (
               <article
                 key={o.slug}
-                className="reveal group overflow-hidden rounded-2xl bg-paper shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+                className="reveal group w-full overflow-hidden rounded-2xl bg-paper shadow-soft transition hover:-translate-y-1 hover:shadow-lift sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -128,6 +131,51 @@ export default function Home() {
               See everything we offer <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ---------------- Spirit Wear ---------------- */}
+      <section className="bg-cream-deep/50 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-rust-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-rust-600">
+              <Sparkles className="h-3.5 w-3.5" /> New for the school year
+            </span>
+            <h2 className="mt-4 text-3xl font-semibold text-bark-900 sm:text-4xl">Spirit Wear</h2>
+            <p className="mt-4 text-bark-700">
+              Custom socks, sweatshirts, and apparel for any school, in most colors and ready before
+              the first bell. Add a name and class year on the sleeve.
+            </p>
+          </div>
+        </div>
+
+        {/* Auto-scrolling sock rotation */}
+        <div className="reveal marquee-mask mt-10 overflow-hidden">
+          <div className="flex w-max animate-marquee gap-4 pr-4 sm:gap-5 sm:pr-5">
+            {[...socks, ...socks].map((s, i) => (
+              <div
+                key={i}
+                className="w-36 shrink-0 rounded-2xl bg-white p-2 shadow-soft ring-1 ring-rust-100 sm:w-44"
+              >
+                <img
+                  src={s.src}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="aspect-[4/5] w-full rounded-xl object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="reveal mt-10 px-4 text-center">
+          <Link
+            href="/spirit-wear"
+            className="inline-flex items-center gap-2 rounded-full bg-rust-500 px-7 py-3.5 text-base font-bold text-cream shadow-soft transition hover:bg-rust-600"
+          >
+            Explore Spirit Wear <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </section>
 

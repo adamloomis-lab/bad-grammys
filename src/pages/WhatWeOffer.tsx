@@ -1,4 +1,5 @@
-import { Phone, Shirt, Facebook } from 'lucide-react'
+import { Link } from 'wouter'
+import { Phone, Shirt, Facebook, ArrowRight } from 'lucide-react'
 import { company, offerings, faqs, spiritWear } from '../data/site'
 import CtaBand from '../components/CtaBand'
 
@@ -76,6 +77,13 @@ export default function WhatWeOffer() {
                   <Facebook className="h-5 w-5" /> Message on Facebook
                 </a>
               </div>
+
+              <Link
+                href="/spirit-wear"
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-cream underline underline-offset-4 transition hover:text-cream/80"
+              >
+                See the full spirit wear collection <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>

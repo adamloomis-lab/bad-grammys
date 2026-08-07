@@ -9,6 +9,7 @@ import { useScrolled } from '../hooks/useScrolled'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/what-we-offer', label: 'What We Offer' },
+  { href: '/spirit-wear', label: 'Spirit Wear' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -28,7 +29,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Logo />
 
-        <div className="hidden items-center gap-9 lg:flex">
+        <div className="hidden items-center gap-6 lg:flex xl:gap-9">
           {links.map((l) => {
             const active = location === l.href
             return (

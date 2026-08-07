@@ -132,6 +132,23 @@
   .animate-glow-pulse { animation: none !important; }
 }
 
+/* Spirit-wear sock marquee (home page rotation). Track holds two copies of the
+   list, so a -50% shift loops seamlessly. */
+@keyframes sock-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: sock-marquee 45s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+}
+
 /* Legal page typography */
 .legal h2 {
   font-size: 1.35rem;

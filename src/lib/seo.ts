@@ -118,6 +118,21 @@ export function getPageMeta(rawPath: string): PageMeta {
           ]),
         ],
       }
+    case '/spirit-wear':
+      return {
+        title: "Spirit Wear | Custom School Socks, Sweatshirts & Apparel | Bad Grammy's Creations",
+        description:
+          'Custom embroidered spirit wear for any school in Northeast Ohio: team socks, sweatshirts and apparel in most colors, ready before the first bell. Add a name and class year on the sleeve. From $45.',
+        canonical: pageUrl('/spirit-wear'),
+        ogImage,
+        jsonLd: [
+          localBusinessSchema(),
+          breadcrumb([
+            { name: 'Home', path: '/' },
+            { name: 'Spirit Wear', path: '/spirit-wear' },
+          ]),
+        ],
+      }
     case '/gallery':
       return {
         title: "Gallery | Handmade Custom Creations | Bad Grammy's Creations",
@@ -192,6 +207,7 @@ export function getPageMeta(rawPath: string): PageMeta {
 export const ALL_ROUTES: string[] = [
   '/',
   '/what-we-offer',
+  '/spirit-wear',
   '/gallery',
   '/contact',
   '/privacy',

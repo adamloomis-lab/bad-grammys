@@ -9,6 +9,7 @@ import CookieNotice from './components/CookieNotice'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import Home from './pages/Home'
 import WhatWeOffer from './pages/WhatWeOffer'
+import SpiritWear from './pages/SpiritWear'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
@@ -33,6 +34,7 @@ function Shell() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/what-we-offer" component={WhatWeOffer} />
+          <Route path="/spirit-wear" component={SpiritWear} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/contact" component={Contact} />
           <Route path="/privacy" component={Privacy} />
