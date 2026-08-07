@@ -103,7 +103,7 @@ export default function Home() {
               .map((o) => (
               <article
                 key={o.slug}
-                className="reveal group w-full overflow-hidden rounded-2xl bg-paper shadow-soft transition hover:-translate-y-1 hover:shadow-lift sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]"
+                className="reveal group w-full overflow-hidden rounded-2xl bg-paper shadow-soft transition hover:-translate-y-1 hover:shadow-lift md:w-[calc(33.333%-1rem)]"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img

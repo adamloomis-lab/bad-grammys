@@ -42,13 +42,13 @@ export default function WhatWeOffer() {
               <p className="mt-3 leading-relaxed text-cream/80">{spiritWear.detail}</p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <div className="border-l-4 border-cream/70 bg-cream/10 px-4 py-2.5">
+                <div className="rounded-lg bg-cream/15 px-4 py-2.5 ring-1 ring-cream/25">
                   <div className="text-[0.7rem] font-semibold uppercase tracking-widest text-cream/70">
                     Base price
                   </div>
                   <div className="text-xl font-bold text-cream">From ${spiritWear.basePrice}</div>
                 </div>
-                <div className="border-l-4 border-cream/70 bg-cream/10 px-4 py-2.5">
+                <div className="rounded-lg bg-cream/15 px-4 py-2.5 ring-1 ring-cream/25">
                   <div className="text-[0.7rem] font-semibold uppercase tracking-widest text-cream/70">
                     Name + class year on sleeve
                   </div>
