@@ -97,6 +97,18 @@ export const offerings = [
   },
 ] as const
 
+// Spirit Wear — school and team apparel. Timely push before the school year;
+// pricing and details provided directly by the owner.
+export const spiritWear = {
+  title: 'Spirit Wear',
+  lead: 'Show your school pride. We make custom spirit wear for any school, in most colors, and ready before the first bell.',
+  detail: 'Add a name and class year down the sleeve to make it all theirs.',
+  basePrice: 45,
+  sleeveAddOn: 10,
+  image: '/images/gallery/creation-35.jpg',
+  alt: 'Model wearing a navy crewneck embroidered with "Kindergarten Teacher" in colorful lettering and the name Warner in alphabet blocks down the sleeve',
+} as const
+
 export const steps = [
   {
     title: 'Share your idea',

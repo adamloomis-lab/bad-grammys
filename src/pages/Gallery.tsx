@@ -9,7 +9,12 @@ export default function Gallery() {
   const [filter, setFilter] = useState<Filter>('All')
   const [active, setActive] = useState<number | null>(null)
 
-  const items = filter === 'All' ? galleryItems : galleryItems.filter((g) => g.category === filter)
+  const items =
+    filter === 'All'
+      ? galleryItems
+      : filter === 'Spirit Wear'
+        ? galleryItems.filter((g) => g.category === 'Spirit Wear' || g.spiritWear)
+        : galleryItems.filter((g) => g.category === filter)
   const filters: Filter[] = ['All', ...galleryCategories]
 
   return (

@@ -1,5 +1,5 @@
-import { Phone, Shirt } from 'lucide-react'
-import { company, offerings, faqs } from '../data/site'
+import { Phone, Shirt, Facebook } from 'lucide-react'
+import { company, offerings, faqs, spiritWear } from '../data/site'
 import CtaBand from '../components/CtaBand'
 
 export default function WhatWeOffer() {
@@ -18,6 +18,66 @@ export default function WhatWeOffer() {
             Made to order, made with care. Here's a little of what we make, but if you can picture
             it, we can almost always create it.
           </p>
+        </div>
+      </section>
+
+      {/* Spirit Wear spotlight — timely school-season push */}
+      <section className="px-4 pb-12 sm:px-6">
+        <div className="reveal mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-rust-600 text-cream shadow-lift">
+          <div className="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12">
+            <div className="relative">
+              <img
+                src={spiritWear.image}
+                alt={spiritWear.alt}
+                width={680}
+                height={900}
+                loading="lazy"
+                className="aspect-[3/4] w-full rounded-[1.4rem] object-cover object-top shadow-lift"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-semibold text-cream sm:text-4xl">{spiritWear.title}</h2>
+              <p className="mt-4 text-lg leading-relaxed text-cream/90">{spiritWear.lead}</p>
+              <p className="mt-3 leading-relaxed text-cream/80">{spiritWear.detail}</p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <div className="border-l-4 border-cream/70 bg-cream/10 px-4 py-2.5">
+                  <div className="text-[0.7rem] font-semibold uppercase tracking-widest text-cream/70">
+                    Base price
+                  </div>
+                  <div className="text-xl font-bold text-cream">From ${spiritWear.basePrice}</div>
+                </div>
+                <div className="border-l-4 border-cream/70 bg-cream/10 px-4 py-2.5">
+                  <div className="text-[0.7rem] font-semibold uppercase tracking-widest text-cream/70">
+                    Name + class year on sleeve
+                  </div>
+                  <div className="text-xl font-bold text-cream">+${spiritWear.sleeveAddOn}</div>
+                </div>
+              </div>
+
+              <p className="mt-5 text-sm text-cream/75">
+                Available for any school, in most colors, and ready in time for the first day. New
+                designs added regularly.
+              </p>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={company.phoneHref}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-cream px-6 py-3 text-base font-bold text-rust-700 shadow-soft transition hover:bg-paper"
+                >
+                  <Phone className="h-5 w-5" /> Call to order
+                </a>
+                <a
+                  href={company.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-cream/50 px-6 py-3 text-base font-bold text-cream transition hover:bg-cream/10"
+                >
+                  <Facebook className="h-5 w-5" /> Message on Facebook
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

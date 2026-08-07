@@ -4,9 +4,10 @@
 
 export type GalleryCategory =
   | 'Memory Keepsakes'
-  | 'Stockings'
+  | 'Spirit Wear'
   | 'Apparel'
   | 'Hats'
+  | 'Stockings'
   | 'Bags'
   | 'Pillows'
   | 'Kitchen & Home'
@@ -19,12 +20,15 @@ export type GalleryItem = {
   // When present, this item is a video: `src` is the poster image shown in the
   // grid, and `video` plays in the lightbox.
   video?: string
+  // School/team pieces keep their home category (Hats, Apparel) but also surface
+  // under the Spirit Wear filter.
+  spiritWear?: boolean
 }
 
 export const galleryItems: GalleryItem[] = [
   { src: '/images/gallery/creation-19.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears sewn from cardinal-print fabric, embroidered with Grandma and Mom on the feet' },
-  { src: '/images/gallery/creation-34.jpg', category: 'Apparel', video: '/videos/panthers-hoodie.mp4', alt: 'Model wearing a custom red hoodie embroidered with "Panthers" in script across the chest and lettering down the sleeve' },
-  { src: '/images/gallery/creation-35.jpg', category: 'Apparel', alt: 'Model wearing a navy crewneck embroidered with "Kindergarten Teacher" in colorful lettering and the name Warner in alphabet blocks down the sleeve' },
+  { src: '/images/gallery/creation-34.jpg', category: 'Apparel', spiritWear: true, video: '/videos/panthers-hoodie.mp4', alt: 'Model wearing a custom red hoodie embroidered with "Panthers" in script across the chest and lettering down the sleeve' },
+  { src: '/images/gallery/creation-35.jpg', category: 'Spirit Wear', alt: 'Model wearing a navy crewneck embroidered with "Kindergarten Teacher" in colorful lettering and the name Warner in alphabet blocks down the sleeve' },
   { src: '/images/gallery/creation-01.jpg', category: 'Stockings', alt: 'Personalized green velvet Christmas stockings embroidered with the names Christopher and Paul and a nativity design' },
   { src: '/images/gallery/creation-03.jpg', category: 'Memory Keepsakes', alt: 'Memory keepsake bear sewn from a hunting shirt with the monogram A.R.W. embroidered on its feet' },
   { src: '/images/gallery/creation-10.jpg', category: 'Baby', alt: 'Plush cream baby bunny with the name Dexter embroidered in gold on its ear' },
@@ -32,7 +36,7 @@ export const galleryItems: GalleryItem[] = [
   { src: '/images/gallery/creation-04.jpg', category: 'Bags', alt: 'A craft-fair table of personalized embroidered zip pouches, each stitched with a different name' },
   { src: '/images/gallery/creation-05.jpg', category: 'Pillows', alt: 'A pair of navy throw pillows embroidered with snowy pine trees and the words Merry Christmas' },
   { src: '/images/gallery/creation-02.jpg', category: 'Memory Keepsakes', alt: 'Memory keepsake bear, badger, and cat sewn from red plaid flannel and Harley-Davidson shirts' },
-  { src: '/images/gallery/creation-24.jpg', category: 'Hats', alt: 'Red and gray knit beanies embroidered with the Panthers team name' },
+  { src: '/images/gallery/creation-24.jpg', category: 'Hats', spiritWear: true, alt: 'Red and gray knit beanies embroidered with the Panthers team name' },
   { src: '/images/gallery/creation-07.jpg', category: 'Pillows', alt: 'A pair of burgundy velvet pillows with ornate white embroidered medallions' },
   { src: '/images/gallery/creation-06.jpg', category: 'Memory Keepsakes', alt: 'Memory keepsake bear sewn from pink and blue gingham with the name Gramps embroidered on its foot' },
   { src: '/images/gallery/creation-13.jpg', category: 'Kitchen & Home', alt: 'Funny embroidered tea towels featuring sassy chickens and playful sayings' },
@@ -50,8 +54,8 @@ export const galleryItems: GalleryItem[] = [
   { src: '/images/gallery/creation-25.jpg', category: 'Bags', alt: 'Handmade Minnie Mouse crossbody bag with red polka-dot pockets' },
   { src: '/images/gallery/creation-21.jpg', category: 'Apparel', alt: 'Black crewneck sweatshirt with embroidered skeleton hands forming a heart' },
   { src: '/images/gallery/creation-15.jpg', category: 'Apparel', alt: 'Gray hoodie with a gold sugar-skull and floral embroidery on the back, shown at a craft fair' },
-  { src: '/images/gallery/creation-31.jpg', category: 'Hats', alt: 'Black snapback cap embroidered with a red Norton "N" and panther logo, photographed on a stadium field' },
-  { src: '/images/gallery/creation-33.jpg', category: 'Hats', alt: 'Black snapback cap embroidered with the purple Barberton Magics top-hat magician mascot' },
+  { src: '/images/gallery/creation-31.jpg', category: 'Hats', spiritWear: true, alt: 'Black snapback cap embroidered with a red Norton "N" and panther logo, photographed on a stadium field' },
+  { src: '/images/gallery/creation-33.jpg', category: 'Hats', spiritWear: true, alt: 'Black snapback cap embroidered with the purple Barberton Magics top-hat magician mascot' },
   { src: '/images/gallery/creation-27.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears sewn from camo and denim clothing, each embroidered with Dad on the feet' },
   { src: '/images/gallery/creation-29.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears sewn from button-up dress shirts in blue, navy, and plaid' },
   { src: '/images/gallery/creation-30.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears with stitched eyelashes, made from gingham, plaid, and navy shirts' },
@@ -61,9 +65,10 @@ export const galleryItems: GalleryItem[] = [
 
 export const galleryCategories: GalleryCategory[] = [
   'Memory Keepsakes',
-  'Stockings',
+  'Spirit Wear',
   'Apparel',
   'Hats',
+  'Stockings',
   'Bags',
   'Pillows',
   'Kitchen & Home',
