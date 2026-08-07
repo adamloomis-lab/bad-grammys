@@ -4,8 +4,20 @@ import { company, spiritWear } from '../data/site'
 import { socks } from '../data/socks'
 import CtaBand from '../components/CtaBand'
 
+type Shot = { src: string; alt: string }
+
+// Spirit-wear apparel showcase (sweatshirts, hoodies, hats). Newest design leads.
+const apparel: Shot[] = [
+  { src: '/images/gallery/creation-36.jpg', alt: 'Model wearing a light gray crewneck with an appliqué teddy bear holding a maroon Norton pennant' },
+  { src: '/images/gallery/creation-35.jpg', alt: 'Model wearing a navy crewneck embroidered with "Kindergarten Teacher" and a name down the sleeve' },
+  { src: '/images/gallery/creation-34.jpg', alt: 'Model wearing a red hoodie embroidered with "Panthers" in script across the chest' },
+  { src: '/images/gallery/creation-31.jpg', alt: 'Black snapback cap embroidered with a red Norton "N" and panther logo' },
+  { src: '/images/gallery/creation-33.jpg', alt: 'Black snapback cap embroidered with the purple Barberton Magics mascot' },
+  { src: '/images/gallery/creation-24.jpg', alt: 'Red and gray knit beanies embroidered with the Panthers team name' },
+]
+
 export default function SpiritWear() {
-  const [active, setActive] = useState<number | null>(null)
+  const [active, setActive] = useState<Shot | null>(null)
 
   return (
     <>
@@ -79,6 +91,38 @@ export default function SpiritWear() {
         </div>
       </section>
 
+      {/* Apparel showcase */}
+      <section className="px-4 pt-16 sm:px-6 sm:pt-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="font-script text-3xl text-rust-500">Wear your school colors</p>
+            <h2 className="mt-1 text-3xl font-semibold text-bark-900 sm:text-4xl">Sweatshirts, Hoodies &amp; Hats</h2>
+            <p className="mt-4 text-bark-700">
+              Team crewnecks, hoodies, and caps embroidered with your school's mascot and colors.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
+            {apparel.map((a) => (
+              <button
+                key={a.src}
+                type="button"
+                onClick={() => setActive(a)}
+                aria-label={`Enlarge: ${a.alt}`}
+                className="reveal group overflow-hidden rounded-2xl shadow-soft ring-1 ring-rust-100 transition hover:-translate-y-1 hover:shadow-lift"
+              >
+                <img
+                  src={a.src}
+                  alt={a.alt}
+                  loading="lazy"
+                  className="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Sock collection */}
       <section className="px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
@@ -92,11 +136,11 @@ export default function SpiritWear() {
           </div>
 
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
-            {socks.map((s, i) => (
+            {socks.map((s) => (
               <button
                 key={s.src}
                 type="button"
-                onClick={() => setActive(i)}
+                onClick={() => setActive(s)}
                 aria-label={`Enlarge: ${s.alt}`}
                 className="reveal group rounded-2xl bg-gradient-to-b from-paper to-cream-deep/70 p-3 shadow-soft ring-1 ring-rust-100 transition hover:-translate-y-1 hover:shadow-lift"
               >
@@ -131,13 +175,13 @@ export default function SpiritWear() {
       </section>
 
       {/* Lightbox */}
-      {active !== null && (
+      {active && (
         <div
           className="fixed inset-0 z-[70] flex items-center justify-center bg-bark-900/85 p-4 backdrop-blur-sm"
           onClick={() => setActive(null)}
           role="dialog"
           aria-modal="true"
-          aria-label={socks[active].alt}
+          aria-label={active.alt}
         >
           <button
             type="button"
@@ -149,11 +193,11 @@ export default function SpiritWear() {
           </button>
           <figure className="max-h-[88vh] max-w-lg" onClick={(e) => e.stopPropagation()}>
             <img
-              src={socks[active].src}
-              alt={socks[active].alt}
-              className="max-h-[80vh] w-auto rounded-2xl bg-white object-contain shadow-lift"
+              src={active.src}
+              alt={active.alt}
+              className="max-h-[80vh] w-auto rounded-2xl object-contain shadow-lift"
             />
-            <figcaption className="mt-3 text-center text-sm text-cream/80">{socks[active].alt}</figcaption>
+            <figcaption className="mt-3 text-center text-sm text-cream/80">{active.alt}</figcaption>
           </figure>
         </div>
       )}

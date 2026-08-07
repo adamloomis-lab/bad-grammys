@@ -16,6 +16,7 @@ const heroImages: RotatorImage[] = [
   { src: '/images/gallery/creation-31.jpg', alt: '' },
   { src: '/images/spirit-wear/sock-01.jpg', alt: '' },
   { src: '/images/gallery/creation-35.jpg', alt: '' },
+  { src: '/images/gallery/creation-36.jpg', alt: '' },
   { src: '/images/spirit-wear/sock-06.jpg', alt: '' },
   { src: '/images/gallery/creation-33.jpg', alt: '' },
   { src: '/images/spirit-wear/sock-12.jpg', alt: '' },

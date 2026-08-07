@@ -29,6 +29,7 @@ export const galleryItems: GalleryItem[] = [
   { src: '/images/gallery/creation-19.jpg', category: 'Memory Keepsakes', alt: 'Three memory keepsake bears sewn from cardinal-print fabric, embroidered with Grandma and Mom on the feet' },
   { src: '/images/gallery/creation-34.jpg', category: 'Apparel', spiritWear: true, video: '/videos/panthers-hoodie.mp4', alt: 'Model wearing a custom red hoodie embroidered with "Panthers" in script across the chest and lettering down the sleeve' },
   { src: '/images/gallery/creation-35.jpg', category: 'Spirit Wear', alt: 'Model wearing a navy crewneck embroidered with "Kindergarten Teacher" in colorful lettering and the name Warner in alphabet blocks down the sleeve' },
+  { src: '/images/gallery/creation-36.jpg', category: 'Spirit Wear', alt: 'Model wearing a light gray crewneck with an appliqué teddy bear holding a maroon Norton pennant' },
   { src: '/images/gallery/creation-01.jpg', category: 'Stockings', alt: 'Personalized green velvet Christmas stockings embroidered with the names Christopher and Paul and a nativity design' },
   { src: '/images/gallery/creation-03.jpg', category: 'Memory Keepsakes', alt: 'Memory keepsake bear sewn from a hunting shirt with the monogram A.R.W. embroidered on its feet' },
   { src: '/images/gallery/creation-10.jpg', category: 'Baby', alt: 'Plush cream baby bunny with the name Dexter embroidered in gold on its ear' },
