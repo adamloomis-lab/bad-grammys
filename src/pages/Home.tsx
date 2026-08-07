@@ -108,9 +108,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-6">
-            {offerings
-              .filter((o) => !['baby-lovies', 'personalized-bags', 'kitchen-home'].includes(o.slug))
-              .map((o) => (
+            {offerings.map((o) => (
               <article
                 key={o.slug}
                 className="reveal group w-full overflow-hidden rounded-2xl bg-paper shadow-soft transition hover:-translate-y-1 hover:shadow-lift md:w-[calc(33.333%-1rem)]"

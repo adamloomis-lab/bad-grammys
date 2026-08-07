@@ -107,7 +107,7 @@ export function getPageMeta(rawPath: string): PageMeta {
       return {
         title: "What We Offer | Custom Embroidery & Keepsakes | Bad Grammy's Creations",
         description:
-          'Memory keepsake bears, personalized Christmas stockings, custom embroidered apparel, bags, pillows, baby lovies and more. Made to order in Northeast Ohio. If you can picture it, we can create it.',
+          'Memory keepsake bears, personalized Christmas stockings, custom embroidered apparel and pillows, plus spirit wear for any school. Made to order in Northeast Ohio. If you can picture it, we can create it.',
         canonical: pageUrl('/what-we-offer'),
         ogImage,
         jsonLd: [
@@ -137,7 +137,7 @@ export function getPageMeta(rawPath: string): PageMeta {
       return {
         title: "Gallery | Handmade Custom Creations | Bad Grammy's Creations",
         description:
-          "Browse real custom pieces from Bad Grammy's Creations, including memory keepsake bears, embroidered stockings, monogrammed apparel, bags, pillows and more, all handmade in Northeast Ohio.",
+          "Browse real custom pieces from Bad Grammy's Creations, including memory keepsake bears, embroidered stockings, spirit wear, monogrammed apparel and pillows, all handmade in Northeast Ohio.",
         canonical: pageUrl('/gallery'),
         ogImage,
         jsonLd: [

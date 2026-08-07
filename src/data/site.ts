@@ -7,7 +7,7 @@ export const company = {
   tagline: 'One-of-a-Kind Gifts Made with Love',
   subTagline: 'Custom Embroidery & Personalized Creations for Every Occasion',
   shortBlurb:
-    "Bad Grammy's Creations makes one-of-a-kind custom embroidery and personalized gifts in Northeast Ohio, from memory keepsake bears and Christmas stockings to monogrammed apparel, bags, pillows and more. If you can picture it, we can create it.",
+    "Bad Grammy's Creations makes one-of-a-kind custom embroidery and personalized gifts in Northeast Ohio, from memory keepsake bears and Christmas stockings to monogrammed apparel, pillows, and custom spirit wear. If you can picture it, we can create it.",
   motto: 'Custom, cozy, and made with love, just like Grandma used to do.',
   phone: '(330) 472-8946',
   phoneHref: 'tel:+13304728946',
@@ -36,7 +36,7 @@ export const offerings = [
     slug: 'custom-embroidery',
     title: 'Custom Embroidery',
     blurb:
-      "Stitch your story onto something special. Whether it's a name, date, or heartfelt message, we embroider on bags, hoodies, pillows, and just about anything else.",
+      "Stitch your story onto something special. Whether it's a name, date, or heartfelt message, we embroider on hoodies, pillows, hats, and just about anything else.",
     icon: 'needle',
     image: '/images/gallery/creation-16.jpg',
     alt: 'Burgundy t-shirt with a hand-embroidered pink rose design',
@@ -49,15 +49,6 @@ export const offerings = [
     icon: 'gift',
     image: '/images/gallery/creation-01.jpg',
     alt: 'Personalized green velvet Christmas stockings embroidered with names and a nativity design',
-  },
-  {
-    slug: 'personalized-bags',
-    title: 'Personalized Bags & Totes',
-    blurb:
-      'Carry around something uniquely you. From everyday totes to monogrammed pouches and crossbody bags, our custom bags are designed to carry memories.',
-    icon: 'bag',
-    image: '/images/gallery/creation-04.jpg',
-    alt: 'A craft-fair table of personalized embroidered zip pouches, each stitched with a different name',
   },
   {
     slug: 'custom-pillows',
@@ -76,24 +67,6 @@ export const offerings = [
     icon: 'shirt',
     image: '/images/gallery/creation-31.jpg',
     alt: 'Black snapback cap embroidered with a red Norton "N" and panther logo on a stadium field',
-  },
-  {
-    slug: 'baby-lovies',
-    title: 'Baby Lovies',
-    blurb:
-      'Soft, sweet, and made with love. These cuddly personalized keepsakes are made for your littlest loved ones.',
-    icon: 'rabbit',
-    image: '/images/gallery/creation-10.jpg',
-    alt: 'A plush cream bunny with the name Dexter embroidered in gold on its ear',
-  },
-  {
-    slug: 'kitchen-home',
-    title: 'Kitchen & Home',
-    blurb:
-      'Aprons, tea towels, potholders and more, embroidered with florals, monograms, or the kind of funny lines that make the whole kitchen smile.',
-    icon: 'home',
-    image: '/images/gallery/creation-17.jpg',
-    alt: 'A floral cornflower-embroidered potholder and trivet set',
   },
 ] as const
 
