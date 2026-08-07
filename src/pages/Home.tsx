@@ -4,8 +4,24 @@ import { company, offerings, steps, promises } from '../data/site'
 import { galleryItems } from '../data/gallery'
 import { socks } from '../data/socks'
 import CtaBand from '../components/CtaBand'
+import HeroRotator, { type RotatorImage } from '../components/HeroRotator'
 
 const peek = galleryItems.slice(0, 6)
+
+// Rotating hero showcase, weighted toward spirit wear (sweatshirts, hats, and
+// the school "player" socks) with a couple signature pieces for range.
+const heroImages: RotatorImage[] = [
+  { src: '/images/gallery/creation-34.jpg', alt: "Custom creations by Bad Grammy's Creations, from spirit wear to memory keepsakes" },
+  { src: '/images/spirit-wear/sock-03.jpg', alt: '' },
+  { src: '/images/gallery/creation-31.jpg', alt: '' },
+  { src: '/images/spirit-wear/sock-01.jpg', alt: '' },
+  { src: '/images/gallery/creation-35.jpg', alt: '' },
+  { src: '/images/spirit-wear/sock-06.jpg', alt: '' },
+  { src: '/images/gallery/creation-33.jpg', alt: '' },
+  { src: '/images/spirit-wear/sock-12.jpg', alt: '' },
+  { src: '/images/gallery/creation-19.jpg', alt: '' },
+  { src: '/images/gallery/creation-01.jpg', alt: '' },
+]
 
 export default function Home() {
   return (
@@ -45,14 +61,11 @@ export default function Home() {
 
           <div className="reveal-scale relative">
             <div className="stitch absolute -inset-3 -rotate-2 rounded-[2.2rem] bg-paper/40" aria-hidden />
-            <img
-              src={offerings[0].image}
-              alt={offerings[0].alt}
-              width={720}
-              height={760}
-              className="relative aspect-[4/4.2] w-full rotate-1 rounded-[2rem] object-cover shadow-lift"
+            <HeroRotator
+              images={heroImages}
+              className="relative aspect-[4/4.2] w-full rotate-1 rounded-[2rem] shadow-lift"
             />
-            <div className="absolute -bottom-5 -left-4 flex items-center gap-3 rounded-2xl bg-paper px-4 py-3 shadow-lift sm:-left-6">
+            <div className="absolute -bottom-5 -left-4 z-10 flex items-center gap-3 rounded-2xl bg-paper px-4 py-3 shadow-lift sm:-left-6">
               <img src="/images/logo.png" alt="" width={48} height={48} className="h-12 w-12 rounded-full ring-2 ring-rust-300/60" />
               <span className="pr-2 text-sm font-semibold leading-tight text-bark-800">
                 Stitched with a<br />grandma's heart
