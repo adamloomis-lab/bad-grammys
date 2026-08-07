@@ -1,18 +1,19 @@
 import { Phone, Facebook } from 'lucide-react'
 import { company } from '../data/site'
-import { useScrolled } from '../hooks/useScrolled'
+import { useDuckOnScroll } from '../hooks/useDuckOnScroll'
 
 // Elevated floating action capsule on mobile (D&D pattern, rust-brand): a
 // blurred bark-dark bar that stands off the edge, with a glassy Facebook
 // button and a glowing rust Call button. The two ways to actually place an
 // order, revealed once the user scrolls past the hero.
 export default function MobileCallBar() {
-  const show = useScrolled(560)
+  // Duck on scroll: hides while scrolling, glides back 550ms after it stops.
+  const show = useDuckOnScroll({ revealAfter: 560, settleMs: 550 })
 
   return (
     <nav
       aria-label="Quick actions"
-      className={`fixed inset-x-0 bottom-0 z-40 px-3 transition-transform duration-300 lg:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 px-3 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${
         show ? 'translate-y-0' : 'translate-y-full'
       }`}
       style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
